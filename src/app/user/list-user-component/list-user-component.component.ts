@@ -9,7 +9,11 @@ import { UserService } from 'src/app/Services/user.service';
   styleUrls: ['./list-user-component.component.css'],
 })
 export class ListUserComponentComponent {
-  constructor(private R: Router, private userS: UserService) {}
+  constructor(
+    private R: Router,
+    private userS: UserService,
+    private _userService: UserService
+  ) {}
 
   ListUser: User[] = [];
 
@@ -21,5 +25,14 @@ export class ListUserComponentComponent {
   }
   goToEdit() {
     this.R.navigate(['edit_user', 1]);
+  }
+
+  delete(id: number) {
+    this._userService.delete(id).subscribe(() => {
+      alert('deleted');
+      // this.userS.getAllUser().subscribe((data) => (this.ListUser = data));
+      this.ngOnInit();
+      this.R.navigate(['/user/user']);
+    });
   }
 }

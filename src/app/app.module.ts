@@ -13,6 +13,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { UserModule } from './user/user.module';
 import { HttpClientModule } from '@angular/common/http';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     AddUserComponent,
     NotFoundComponent,
     EditUserComponent,
+    UpdateUserComponent,
   ],
   imports: [
     BrowserModule,
